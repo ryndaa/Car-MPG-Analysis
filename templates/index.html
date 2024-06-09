@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <style>
+        body {
+            background-color: #c7ecee; /* Warna latar belakang hijau pastel */
+            color: #2c3e50; /* Warna teks */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .login-root {
+            background: linear-gradient(160deg, #fad02e 0%, #16a085 100%); /* Gradien hijau pastel */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .formbg {
+            width: 100%;
+            max-width: 300px;
+            background: #f0f3f4; /* Warna kotak hijau muda */
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: 0.5s;
+        }
+
+        .formbg:hover {
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #34495e; /* Warna teks */
+            font-family: 'Coldiac', sans-serif;
+            font-size: 24px;
+        }
+
+        .form-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #34495e; /* Warna teks */
+            font-family: 'Arial', sans-serif;
+        }
+
+        .form-control {
+            font-size: 14px;
+            line-height: 24px;
+            padding: 8px 12px;
+            width: 100%;
+            min-height: 34px;
+            border: 1px solid #1abc9c; /* Warna border hijau pastel */
+            border-radius: 6px;
+            outline-color: rgb(26 188 156 / 0.5);
+            background-color: #c7ecee; /* Warna input hijau pastel */
+            margin-bottom: 15px;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        .form-control:focus {
+            border-color: #16a085; /* Warna border input saat difokuskan */
+            box-shadow: 0 0 0 0.2rem rgba(22, 160, 133, 0.25);
+        }
+
+        input[type="submit"] {
+            background-color: #1abc9c; /* Warna tombol hijau pastel */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #16a085; /* Warna tombol saat dihover */
+        }
+
+        .additional-info {
+            text-align: center;
+            font-size: 12px;
+            color: #34495e; /* Warna teks */
+            margin-top: 15px;
+        }
+
+        .additional-info a {
+            color: #1abc9c; /* Warna teks link hijau pastel */
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .additional-info a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <title>Car Mileage Prediction Model</title>
+</head>
+
+<body>
+    <div class="login-root">
+        <div class="formbg-outer">
+            <div class="formbg">
+                <div class="formbg-inner">
+                    <h1>Car Mileage Prediction</h1>
+                    <form id="car-mileage-form" action="/result" method="POST">
+                        <div class="field">
+                            <label for="mpg" class="form-label">MPG</label>
+                            <input type="float" class="form-control" id="mpg" name="mpg" required />
+                        </div>
+                        <div class="field">
+                            <label for="cyl" class="form-label">Cylinders</label>
+                            <input type="float" class="form-control" id="cyl" name="cyl" required />
+                        </div>
+                        <div class="field">
+                            <label for="disp" class="form-label">Displacement</label>
+                            <input type="float" class="form-control" id="disp" name="disp" required />
+                        </div>
+                        <div class="field">
+                            <label for="hp" class="form-label">Horsepower</label>
+                            <input type="float" class="form-control" id="hp" name="hp" required />
+                        </div>
+                        <div class="field">
+                            <label for="wt" class="form-label">Weight</label>
+                            <input type="float" class="form-control" id="wt" name="wt" required />
+                        </div>
+                        <div class="field">
+                            <input type="submit" name="submit" value="Predict" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

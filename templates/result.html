@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <title>Car Mileage Prediction Model</title>
+    <style>
+        body {
+            background-color: #c7ecee; /* Warna latar belakang hijau pastel */
+            color: #2c3e50; /* Warna teks */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Pop in', sans-serif;
+        }
+
+        .login-root {
+            background: linear-gradient(160deg, #fad02e 0%, #16a085 100%); /* Gradien hijau pastel */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .formbg {
+            width: 100%;
+            max-width: 300px;
+            background: #f0f3f4; /* Warna kotak hijau muda */
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: 0.5s;
+            margin: auto; /* Tengah secara horizontal */
+            margin-top: 50px; /* Tengah secara vertikal */
+        }
+
+        .formbg:hover {
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #34495e; /* Warna teks */
+            font-family: 'Coldiac', sans-serif;
+            font-size: 24px;
+        }
+
+        .form-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #34495e; /* Warna teks */
+            font-family: 'Arial', sans-serif;
+        }
+
+        .form-control {
+            font-size: 14px;
+            line-height: 24px;
+            padding: 8px 12px;
+            width: 100%;
+            min-height: 34px;
+            border: 1px solid #1abc9c; /* Warna border hijau pastel */
+            border-radius: 6px;
+            outline-color: rgb(26 188 156 / 0.5);
+            background-color: #c7ecee; /* Warna input hijau pastel */
+            margin-bottom: 15px;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        .form-control:focus {
+            border-color: #16a085; /* Warna border input saat difokuskan */
+            box-shadow: 0 0 0 0.2rem rgba(22, 160, 133, 0.25);
+        }
+
+        input[type="submit"]:hover {
+            background-color: #16a085; /* Warna tombol saat dihover */
+        }
+
+        .additional-info {
+            text-align: center;
+            font-size: 12px;
+            color: #34495e; /* Warna teks */
+            margin-top: 15px;
+        }
+
+        .additional-info a {
+            color: #1abc9c; /* Warna teks link hijau pastel */
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-root">
+        <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh; flex-grow: 1">
+            <div class="loginbackground box-background--white padding-top--64">
+                <div class="loginbackground-gridContainer">
+                    <div class="box-root flex-flex" style="grid-area: top / start / 8 / end">
+                        <div class="box-root"
+                            style="background-image: linear-gradient(white 0%, rgb(247, 250, 252) 33%); flex-grow: 1;"></div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 4 / 2 / auto / 5">
+                        <div class="box-root box-divider--light-all-2 animationLeftRight tans3s" style="flex-grow: 1;"></div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 6 / start / auto / 2">
+                        <div class="box-root box-background--blue800" style="flex-grow: 1;"></div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 7 / start / auto / 4">
+                        <div class="box-root box-background--blue animationLeftRight" style="flex-grow: 1;"></div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 8 / 4 / auto / 6">
+                        <div class="box-root box-background--gray100 animationLeftRight tans3s" style="flex-grow: 1;"></div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 2 / 15 / auto / end">
+                        <div class="box-root box-background--cyan200 animationRightLeft tans4s" style="flex-grow: 1;"></div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 3 / 14 / auto / end">
+                        <div class="box-root box-background--blue animationRightLeft" style="flex-grow: 1;"></div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 4 / 17 / auto / 20">
+                        <div class="box-root box-background--gray100 animationRightLeft tans4s" style="flex-grow: 1;"></div>
+                    </div>
+                    <div class="box-root flex-flex" style="grid-area: 5 / 14 / auto / 17">
+                        <div class="box-root box-divider--light-all-2 animationRightLeft tans3s" style="flex-grow: 1;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9">
+                <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+                    <h1>Car Mileage Prediction</h1>
+                </div>
+                <div class="formbg-outer">
+                    <div class="formbg">
+                        <p class="prediction">The Prediction is</p>
+                        <h1 class="result">{{ prediction }}</h1>
+                        <a href="index" class="back-link">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
